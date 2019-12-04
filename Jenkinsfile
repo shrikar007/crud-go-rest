@@ -3,7 +3,7 @@ node('master') {
         stage('Code Checkout') {
             docker
                 .image('golang:latest')
-                .inside('--volumes-from jenkins-run_jenkins_1') {
+                .inside('--volumes-from jenkins-ci') {
                     checkout scm
                 }
         }
@@ -11,7 +11,7 @@ node('master') {
         stage('Build') {
             docker
                 .image('golang:latest')
-                .inside('--volumes-from jenkins-run_jenkins_1') {
+                .inside('--volumes-from jenkins-ci') {
                     echo "Deployinh"
                 }
         }

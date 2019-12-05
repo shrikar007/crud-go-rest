@@ -10,6 +10,6 @@ FROM alpine
 
 COPY --from=builder /main /app/main
 RUN chmod +x /app/main
-CMD ["/app/main"]
+ENTRYPOINT ["/app/main"]
 
 EXPOSE 8082

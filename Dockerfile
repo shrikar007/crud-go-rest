@@ -1,4 +1,3 @@
-
 FROM  golang:1.12.4-alpine as  builder
 ENV GO111MODULE=on
 WORKDIR /go/src/bitbucket.com/shrikar007/go-rest-api
@@ -23,4 +22,3 @@ RUN chmod +x main
 EXPOSE 8082
 
 ENTRYPOINT ["/main"]
-

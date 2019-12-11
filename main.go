@@ -43,7 +43,7 @@ func main() {
 		})
 	})
 
-	log.Fatal(http.ListenAndServe(":8082", r))
+	log.Fatal(http.ListenAndServe(":8083", r))
 }
 var  index int
 func CreateExpense(writer http.ResponseWriter, request *http.Request) {
@@ -96,7 +96,7 @@ func ListOneExpense(writer http.ResponseWriter, request *http.Request) {
 	}
 }
 
-func ListAllExpense(writer http.ResponseWriter, request *http.Request) {
+func ListAllExpense(writer http.ResponseWriter, _ *http.Request) {
 
 		encoder := json.NewEncoder(writer)
 	writer.Header().Set("Content-Type", "application/json")

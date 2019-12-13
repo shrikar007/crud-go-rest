@@ -17,7 +17,7 @@ node{
         sh "docker build -t crud-pipe:${BUILD_NUMBER} ."
     }
     stage("run"){
-        sh "docker run --rm -p 8082:8082 -d crud-pipe:${BUILD_NUMBER}"
+        sh "docker run --rm -p 8083:8083 -d crud-pipe:${BUILD_NUMBER}"
     }
 }
 def status(){

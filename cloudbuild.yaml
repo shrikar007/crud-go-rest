@@ -10,5 +10,5 @@ steps:
   -'gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-latest'
   
 images:
-   -gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-$SHORT_SHA
-   -gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-latest
+       -gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-$SHORT_SHA
+       -gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-latest

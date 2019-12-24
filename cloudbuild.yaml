@@ -10,7 +10,7 @@ steps:
   - 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-latest'
   
 - name: 'gcr.io/cloud-builders/gcloud'
- args: ['beta', 'run', 'deploy', 'crud-op', '--image', 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-latest', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated'] 
+  args: ['beta', 'run', 'deploy', 'crud-op', '--image', 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-latest', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated'] 
  
 images:
        - gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-$SHORT_SHA

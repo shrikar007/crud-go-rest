@@ -1,22 +1,6 @@
 steps:
 # Build all supported versions.
 
-- name: 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
-  args: 
-   - '-Dsonar.projectKey=crud-pipe-app-go-dev-shrikar'
-   - '-Dsonar.projectName=CRUD-pipe-Go-Dev-Shrikar'
-   - '-Dsonar.issuesReport.html.enable=true'
-   - '-Dsonar.report.export.path=sonar-report.json'
-   - '-Dsonar.sources=.'
-   - '-Dsonar.exclusions=**/*_test.go,**/vendor/**'
-   - '-Dsonar.tests=.'
-   - '-Dsonar.test.inclusions=**/*_test.go'
-   - '-Dsonar.test.exclusions=**/vendor/**'
-   - '-Dsonar.issuesReport.html.enable=true'
-   - '-Dsonar.report.export.path=report.json'
-   - '-Dsonar.host.url=https://sonarcloud.io'
-
-
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-$SHORT_SHA', '.']
   

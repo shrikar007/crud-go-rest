@@ -13,7 +13,7 @@ steps:
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', 'k8s/']
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=crud-op-kub'
 
 - name: 'gcr.io/cloud-builders/kubectl'
@@ -25,7 +25,7 @@ steps:
    'crud-op=gcr.io/$PROJECT_ID/crud-op:$TAG_NAME'
   ]
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=crud-op-kub'
   
 - name: 'gcr.io/cloud-builders/gcloud'

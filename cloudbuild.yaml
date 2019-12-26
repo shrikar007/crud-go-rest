@@ -10,6 +10,24 @@ steps:
   - 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-$SHORT_SHA'
   - 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-latest'
   
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', 'k8s/']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=crud-op-kub'
+
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: [
+   'set', 
+   'image', 
+   'deployment', 
+   'crud-op', 
+   'crud-op=gcr.io/$PROJECT_ID/crud-op:$TAG_NAME'
+  ]
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=crud-op-kub'
+  
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['beta', 'run', 'deploy', 'crud-op', '--image', 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-$BRANCH_NAME-latest', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated'] 
  

@@ -4,14 +4,18 @@ steps:
         args:
             - build
             - '-t'
-            - 'asia.gcr.io/$PROJECT_ID/crud-op:cloudbuild-dev-$BRANCH_NAME-$SHORT_SHA'
+            - 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-dev-$BRANCH_NAME-$SHORT_SHA'
             - .
+    -
+            
+        name: 'gcr.io/cloud-builders/docker'
+        args: [ 'push', 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-dev-$BRANCH_NAME-$SHORT_SHA' ]
     -
         name: gcr.io/cloud-builders/docker
         args:
             - tag
-            - 'asia.gcr.io/$PROJECT_ID/crud-op:cloudbuild-dev-$BRANCH_NAME-$SHORT_SHA'
-            - 'asia.gcr.io/$PROJECT_ID/crud-op:cloudbuild-dev-$BRANCH_NAME-latest'
+            - 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-dev-$BRANCH_NAME-$SHORT_SHA'
+            - 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-dev-$BRANCH_NAME-latest'
     -
         name: gcr.io/cloud-builders/gcloud
         args:
@@ -20,12 +24,12 @@ steps:
             - deploy
             - crud-op-dev
             - '--image'
-            - 'asia.gcr.io/$PROJECT_ID/crud-op:cloudbuild-dev-$BRANCH_NAME-latest'
+            - 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-dev-$BRANCH_NAME-latest'
             - '--region'
             - us-central1
             - '--platform'
             - managed
             - '--allow-unauthenticated'
 images:
-    - 'asia.gcr.io/$PROJECT_ID/crud-op:cloudbuild-dev-$BRANCH_NAME-$SHORT_SHA'
-    - 'asia.gcr.io/$PROJECT_ID/crud-op:cloudbuild-dev-$BRANCH_NAME-latest'
+    - 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-dev-$BRANCH_NAME-$SHORT_SHA'
+    - 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-dev-$BRANCH_NAME-latest'

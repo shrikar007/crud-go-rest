@@ -4,5 +4,5 @@ go 1.12
 
 require (
 	github.com/go-chi/chi v4.0.2+incompatible
-	google.golang.org/genproto v0.0.0-20190819201941-24fa4b261c55
+	google.golang.org/genproto v0.0.0-20191206224255-0243a4be9c8f
 )

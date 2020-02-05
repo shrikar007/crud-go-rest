@@ -31,4 +31,4 @@ steps:
             - '--allow-unauthenticated'
 images:
           - gcr.io/$PROJECT_ID/crud-op:cloudbuild-prod-$BRANCH_NAME-$SHORT_SHA
-          - gcr.io/$PROJECT_ID/crud-op:cloudbuild-prod-$BRANCH_NAME-latest'
+          - gcr.io/$PROJECT_ID/crud-op:cloudbuild-prod-$BRANCH_NAME-latest

@@ -6,7 +6,7 @@ steps:
             - '-t'
             - 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-dev-$BRANCH_NAME-$SHORT_SHA'
             - .
-  -
+    -
             
         name: 'gcr.io/cloud-builders/docker'
         args:

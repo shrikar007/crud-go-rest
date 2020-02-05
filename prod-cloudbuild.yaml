@@ -7,6 +7,14 @@ steps:
             - 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-prod-$BRANCH_NAME-$SHORT_SHA'
             - .
     -
+            
+        name: 'gcr.io/cloud-builders/docker'
+        args:
+            - push 
+            - 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-prod-$BRANCH_NAME-$SHORT_SHA'
+            - 'gcr.io/$PROJECT_ID/crud-op:cloudbuild-prod-$BRANCH_NAME-latest'
+            
+    -
         name: gcr.io/cloud-builders/docker
         args:
             - tag
